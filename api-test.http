@@ -1,0 +1,161 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@ecommerce.com",
+  "password": "user123"
+}
+
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@ecommerce.com",
+  "password": "admin123"
+}
+
+
+###
+
+GET http://localhost:5000/api/products
+
+
+###
+
+GET http://localhost:5000/api/products?search=kaos
+
+
+###
+
+GET http://localhost:5000/api/categories
+
+
+###
+
+POST http://localhost:5000/api/cart
+Content-Type: application/json
+Authorization: Bearer token_dari_step_1
+
+{
+  "productId": "69df387cc3984749fdfedc13",
+  "quantity": 2
+}
+
+
+###
+
+GET http://localhost:5000/api/cart
+Authorization: Bearer token_dari_step_1
+
+
+###
+
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+Authorization: Bearer token_dari_step_1
+
+{
+  "shippingAddress": {
+    "street": "Jl. Sudirman No. 5",
+    "city": "Medan",
+    "province": "Sumatera Utara",
+    "postalCode": "20111"
+  },
+  "paymentMethod": "transfer_bank"
+}
+
+
+###
+
+GET http://localhost:5000/api/orders
+Authorization: Bearer token_dari_step_1
+
+
+###
+
+GET http://localhost:5000/api/orders/admin/all
+Authorization: Bearer token_dari_step_2
+
+
+###
+
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Nama Lengkap",
+  "email": "emailbaru@gmail.com",
+  "password": "password123",
+  "phone": "081234567890",
+  "address": {
+    "street": "Jl. Contoh No. 1",
+    "city": "Medan",
+    "province": "Sumatera Utara",
+    "postalCode": "20111"
+  }
+}
+
+
+###
+
+GET http://localhost:5000/api/auth/profile
+Authorization: Bearer token_dari_step_1
+
+
+###
+
+POST http://localhost:5000/api/categories
+Content-Type: application/json
+Authorization: Bearer token_dari_step_2
+
+{
+  "name": "Aksesoris",
+  "description": "Aksesoris handphone dan laptop"
+}
+
+
+###
+
+POST http://localhost:5000/api/products
+Content-Type: application/json
+Authorization: Bearer token_dari_step_2
+
+{
+  "name": "Airpods Pro 2",
+  "description": "Earphone wireless Apple dengan ANC",
+  "price": 3999000,
+  "stock": 75,
+  "category": "69df387cc3984749fdfedc0b",
+  "image": "airpods.jpg"
+}
+
+
+###
+
+GET http://localhost:5000/api/products?minPrice=50000&maxPrice=200000&sort=price_asc
+
+
+###
+
+PUT http://localhost:5000/api/cart/69df387cc3984749fdfedc13
+Content-Type: application/json
+Authorization: Bearer token_dari_step_1
+
+{
+  "quantity": 5
+}
+
+
+###
+
+DELETE http://localhost:5000/api/cart/69df387cc3984749fdfedc13
+Authorization: Bearer token_dari_step_1
+
+
+###
+
+DELETE http://localhost:5000/api/cart/clear
+Authorization: Bearer token_dari_step_1
